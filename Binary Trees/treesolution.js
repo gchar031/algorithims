@@ -40,9 +40,7 @@ class BinarySearchTree {
       //        - If there is not, add that node as the right property
 
       while (true) {
-        if (val === current.value) {
-          return undefined;
-        } else if (val < current.value) {
+        if (newNode.val > current.val) {
           if (!current.left) {
             current.left = newNode;
             return this;
@@ -64,10 +62,13 @@ class BinarySearchTree {
             node.right = val;
           }
           return node;
+        } else {
+          return undefined
         }
       }
     }
   }
+  
   //breadth-first search
   BFS() {
     let data = [];
@@ -156,6 +157,44 @@ class BinarySearchTree {
   //   - Return current
 }
 
+class BinarySearchTreeCorrections {
+  constructor() {
+    this.root = null;
+  }
+
+  //insert nodes
+  insert(val) {
+    let newNode = new Node(val);
+    if (!this.root) {
+      this.root = newNode;
+      return this;
+    } else {
+      let current = this.root;
+      if (newNode.value > current.value) {
+        if (current.right) {
+          current = current.right;
+          console.log(JSON.stringify(newNode));
+        } else {
+          current.right = newNode.value;
+          return this;
+        }
+      } else if (newNode.value < current.value) {
+        if (current.left) {
+          current = current.left;
+        } else {
+          current.left = newNode.value;
+          return this;
+        }
+      } else {
+        return undefined;
+      }
+    }
+  }
+
+  //find nodes
+}
+
+console.log('Hello')
 const trying = new BinarySearchTree();
 trying.insert(10);
 trying.insert(5);
@@ -164,8 +203,7 @@ trying.insert(7);
 trying.insert(2);
 trying.insert(16);
 trying.insert(11);
-console.log(trying);
-
+console.log(JSON.stringify(trying, null, 3))
 // 9:15
 
 // 9:15
