@@ -41,3 +41,4 @@ let A = assessmentAlgo.length;
 // console.log(maxProfit(prices, N));
 console.log(assessmentAlgo);
 console.log(maxProfit(assessmentAlgo, assessmentAlgo.length));
+
